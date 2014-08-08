@@ -1,6 +1,6 @@
 {
     "name": "generator-famous-triggerio",
-    "version": "1.0.0",
+    "version": "0.9.1",
     "description": "Yeoman generator for creating Famo.us apps with Trigger.io",
     "license": "MIT",
     "keywords": [
