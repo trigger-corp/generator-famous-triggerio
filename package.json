@@ -5,7 +5,8 @@
     "license": "MIT",
     "keywords": [
         "yeoman-generator",
-        "triggerio"
+        "triggerio",
+        "famous"
     ],
     "dependencies": {
         "chalk": "~0.5.0",
