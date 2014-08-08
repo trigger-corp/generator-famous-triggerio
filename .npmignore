@@ -1,0 +1,6 @@
+.editorconfig
+.gitattributes
+.gitignore
+.jshintrc
+travis.ym
+test/
