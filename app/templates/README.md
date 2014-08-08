@@ -1,0 +1,3 @@
+# <%= projectName %>
+> <%= _.capitalize(projectDesc) %>.
+

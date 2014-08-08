@@ -1,0 +1,12 @@
+html {
+    background: #fff;
+    color: black;
+    font-family: "Helvetica Neue", "Helvetica", "Arial";
+    font-weight: lighter;
+    -webkit-user-select: none;
+}
+
+.backfaceVisibility {
+    -webkit-backface-visibility: visible;
+    backface-visibility: visible;
+}

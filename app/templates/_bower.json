@@ -1,0 +1,32 @@
+{
+    "name": "<%= _.slugify(projectName) %>",
+    "description": "<%= _.capitalize(projectDesc) %>.",
+    "version": "0.1.0",
+    "homepage": "https://github.com/<%= githubUser %>/<%= _.slugify(projectName) %>",
+    "authors": [{
+        "name": "<%= authorName %>",
+        "url": "http://github.com/<%= githubUser %>/"
+    }],
+    "main": "src/index.html",
+    "moduleType": [
+        "es6"
+    ],
+    "keywords": [
+        "famo.us", "trigger.io"
+    ],
+    "license": "ISC",
+    "private": true,
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "src/lib",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "requirejs": "~2.1.11",
+        "famous-polyfills": "git+https://github.com/Famous/polyfills.git#0.1.1",
+        "famous": "~0.2.2",
+        "es6-promise": "~1.0.0"
+    }
+}
