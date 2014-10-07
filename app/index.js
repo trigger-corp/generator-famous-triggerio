@@ -60,7 +60,7 @@ var TriggerioGenerator = yeoman.generators.Base.extend({
                     .on("error", function (error) {
                         this._exitWithError(error);
                         return;
-                    })
+                    }.bind(this))
                     .on("exit", function (status) {
                         if (status !== 0) {
                             this._exitWithError("Failed with status code: " + status);
