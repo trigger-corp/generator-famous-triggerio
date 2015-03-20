@@ -5,6 +5,9 @@ var yeoman = require("yeoman-generator");
 var yosay = require("yosay");
 var chalk = require("chalk");
 var fs = require("fs");
+var shelljs = require("shelljs");
+var osenv = require("osenv");
+var os = require("os");
 
 var TriggerioGenerator = yeoman.generators.Base.extend({
     init: function () {
@@ -56,7 +59,16 @@ var TriggerioGenerator = yeoman.generators.Base.extend({
         var done = this.async();
         this.prompt(prompts, function (props) {
             this.config.set("githubUser", props.githubUser);
-            this.spawnCommand("forge", ["create"]) // TODO find forge
+            var forge_locations = {
+                    "osx": "/Library/Trigger\ Toolkit/forge", 
+                    "win32": "\\AppData\\Local\\Trigger Toolkit\\forge.exe", 
+                    "linux": "/TriggerToolkit/forge" 
+            }; 
+            if (!shelljs.which("forge") && !shelljs.test("-f", osenv.home() + forge_locations[os.platform()])) {
+                this._exitWithError("Could not locate Forge executable. Please check that you have added it to your system PATH.");
+                return;
+            }
+            this.spawnCommand("forge", ["create"]) 
                     .on("error", function (error) {
                         this._exitWithError(error);
                         return;
@@ -120,7 +132,7 @@ var TriggerioGenerator = yeoman.generators.Base.extend({
     },
 
     _exitWithError: function (error) {
-        this.log("We are experiencing a dastardly error event: " + error);
+        this.log("Error: " + error);
     }
 });
 module.exports = TriggerioGenerator;
